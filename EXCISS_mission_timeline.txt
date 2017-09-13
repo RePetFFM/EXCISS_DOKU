@@ -1,0 +1,90 @@
+pre flight phase
+------------------------------------------
+- Charg battery to storage voltage.
+- Shutdown raspi and arduino.
+- RTC must be still powered by lipo.
+- setting the babysitter battery charg from USB
+
+
+transfer zum ISS
+------------------------------------------
+- Only powered component is the RTC.
+- Keep in mind, launch can be delayed due bad weather etc. 
+Hence time/date based activation etc. is not a good practice.
+
+
+boot phase
+------------------------------------------
+[event] first nanorack usb power activation:
+- Arduino get power from nanoracks.
+- Arduino increment boot counter and store in eeprom
+- Arduino last boot date time and store in eeprom
+- After bootup, swaping the arduino power source from USB to internal battery.
+(- Check battery charg level via sparkfun babysitter. )
+- Switch USB dataswitch to NanoRacks
+
+
+missions phase
+------------------------------------------
+- Check for outside data transfer window time frame.
+- Waiting until batterie is charged to mission phase voltage. Keep in mind, don't set the mission start charg leve to 100% due to battery degradation.
+- Waiting for full charg of ignition coil.
+
+- Switch USB dataswitch to Raspberry PI
+- Power on Raspberry PI
+- Update check for Config and Python code
+- Write health logfile to Transfer USB
+- check USB A status
+- check USB B status
+- define [main recording mass storage] based on USB A/B status
+
+- Start main mission
+- turn off all LED's
+- take dark still image for pixel error reference on USB Stick [main recording mass storage]
+- ?(turn on shaker for 1 sec)
+- turn on all LED's
+- take 3 still images in 2 sec interval on USB Stick [main recording mass storage]
+- ?(turn on shaker for 1 sec)
+- start video recording with high framerate on USB Stick [main recording mass storage]
+- wait 2 sec
+- ?(turn on shaker for 1 sec and wait 0.5 sec)
+- ignition
+- wait for 3 min
+- stop high frame rate recording
+- start copying in background high frame rate video from USB Stick [main recording mass storage] to transfer USB stick
+- start copying in background high frame rate video from USB Stick [main recording mass storage] to backup USB stick
+- start low frame rate recording / begin still timelaps with burst LED exposure on USB Stick [main recording mass storage]
+- wait for 7 min
+- turn off all LED's
+- start copying low frame rate video from USB Stick [main recording mass storage] to backup USB stick
+- Write health logfile to Transfer USB
+- unmount USB sticks
+- send shutdown signal to Arduino via serial
+- shutdown raspberry pi
+
+- after 2 min arduino turn off Raspi power
+- Arduino swaps USB switch to NanoRacks
+- loop back to mission loop start
+- loop exit conditions
+	- no USB Power for 2 days
+	- or Mission end Date
+
+
+shutdown
+------------------------------------------
+- Turn off all LED's
+- Turn off Arduino
+
+
+sample return
+------------------------------------------
+- keep it turn off
+
+
+data extraction
+------------------------------------------
+- pull USB Sticks
+
+
+data analysis
+------------------------------------------
