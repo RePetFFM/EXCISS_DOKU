@@ -28,7 +28,7 @@ RIGHT border side
 [PB5](SCK) 	--> [USB switch]
 [PB4](MISO) --> [Raspberry Pi][GPIO bootdown]
 [PB3](MOSI) -->	[Arduino powersource MOSFET]
-[PB2](SS)	[not connected]
+[PB2](SS)	--> [Babysitter power on/off]
 
 
 RIGHT inner side

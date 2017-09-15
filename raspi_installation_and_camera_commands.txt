@@ -1,0 +1,29 @@
+
+prepair raspberry pi
+
+sudo apt-get install python-picamera
+
+or
+
+sudo apt-get install python3-picamera
+
+install samba
+sudo apt-get install samba samba-common-bin
+
+install MP4Box with:
+sudo apt-get -y install gpac
+
+https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspivid.md
+
+
+camera modes:
+https://picamera.readthedocs.io/en/release-1.11/fov.html#camera-modes
+
+
+1640x1232
+raspivid -w 1640 -h 1232 -fps 40 -t 10000 -o test1640x1232_40fps.h264
+MP4Box -add test1640x1232_40fps.h264 test1640x1232_40fps.mp4
+
+
+Error
+Too many macroblocks/s: Increasing H264 Level to 4.2
