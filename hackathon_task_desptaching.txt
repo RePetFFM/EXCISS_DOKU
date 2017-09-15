@@ -1,0 +1,70 @@
+hackathon task priority
+
+
+// raspberry pi camera recording 
+recording camera with 40 fps
+optional: OSD with timecode begin with t -10sec
+
+
+
+// power managment
+[i2c] <--> [Babysitter]
+[PD4]		--> MOSFET --> Raspberry Power
+[PC0](ADC0) <-- [voltage divider] <-- [USB 5V power source]
+[PB4](MISO) --> [Raspberry Pi][GPIO bootdown]
+[PB3](MOSI) -->	[Arduino powersource MOSFET]
+[PB2](SS)	--> [Babysitter power on/off]
+
+
+
+// arduino serial communication
+Dependency:
+	raspberry pi python serial communication
+[TXD](31)	--> [Raspberry Pi][GPIO Serial RX]
+[RDX](30)	<-- [Raspberry Pi][GPIO Serial TX]
+
+
+
+// power command loop
+[PC0](ADC0) <-- [voltage divider] <-- [USB 5V power source]
+
+
+
+// arduino basic gpio functions
+[PD5](PWM)	--> [FemtoBuck] --> [Power LED front light]
+	PWM duty cylce must be defined by default value and over serial setter command
+[PD6](PWM)	--> [FemtoBuck] --> [Power LED back light]
+	PWM duty cylce must be defined by default value and over serial setter command
+
+[PB1](PWM)	--> [ignition coil]
+[PB5](SCK) 	--> [USB switch]
+
+
+
+// RTC functions
+Dependency:
+	Serial com
+[i2c] <--> [DS3231]
+
+
+
+// haptic driver functions
+[i2c] <--> [DRV2605L]
+
+
+****************************************************
+optional features level 1:
+
+// raspberry pi watchdog routine
+Dependency:
+	Raspberry Pi watchdog
+[PD3](INT1) <-- [Raspberry Pi][GPIO watchdog]
+
+
+****************************************************
+optional features level 2:
+
+[PD7] ???	--> MOSEFT --> USB Power A
+[PB0] ???	--> MOSEFT --> USB Power B
+// pin interrupt handling
+[PD2](INT0) <-- [Raspberry Pi][GPIO ignition]
