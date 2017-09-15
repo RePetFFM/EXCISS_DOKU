@@ -22,7 +22,7 @@ ISS USB power first or power restore event
 [exec][ard]		Arduino increment boot counter and store in eeprom
 [exec][ard]		Arduino last boot date time and store in eeprom
 [exec][ard]		After bootup, swaping the arduino power source from USB to internal battery.
-([exec][ard] Check battery charg level via sparkfun babysitter. )
+([exec][ard]	Check battery charg level via sparkfun babysitter. )
 [exec][ard]		Switch USB dataswitch to NanoRacks
 
 
@@ -40,11 +40,15 @@ mission loop
 
 [exec][ard]		Switch USB dataswitch to Raspberry PI
 [exec][ard]		Power on Raspberry PI
-[exec][pi]		Check for new config and python code on transfer USB
-[exec][pi]		Write health logfile to transfer USB
+
+[exec][pi][ard]	Set watchdog GPIO to high for 3 sec and keep it for 3min low. The arduino should try to gracefull shutdown the raspberry, if the watchdog signal is missing for predefined timespan.
+[exec][ard][pi]	Read from arduino last stored status and error informations for health logfile.
+[exec][pi]		Write health logfile to transfer USB.
+[exec][pi]		Check for new config and python code on transfer USB.
 [check][pi]		check USB A status. Store USB status.
 [check][pi]		check USB B status. Store USB status.
 [exec][pi]		define [main recording mass storage] based on USB A/B status
+[exec][pi]		store health logfile with datetime and incremented integer value (prevent overwriting in case off RTC error) to the active storage.
 
 [exec][pi]		Start main mission
 [exec][pi][ard]	turn off all LED's
@@ -77,6 +81,17 @@ mission loop
 [exec][ard]		loop exit conditions
 	[cond][ard]		no USB Power for 2 days
 	[cond][ard]		OR Mission end Date
+
+
+power managment loop
+------------------------------------------
+[cond][ard]		check NanoRacks USB Power status over GPIO
+[cond][ard]		check NanoRacks USB Power status over Babysitter
+[cond][ard]		check Battery charg level
+[store][ard]	store science mission "go" or "no go"
+[store][ard]	add store last error bits (must be cleared by raspberry pi via serial command after appending the error codes in downlink transfer logfile).
+[store][ard]	store current battery level and any battery health related values.
+[store][ard]	store current gauge values, max and min values are stored as peak value.
 
 
 shutdown
