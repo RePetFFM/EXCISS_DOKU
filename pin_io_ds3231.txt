@@ -1,0 +1,11 @@
+[GND] <-- GND
+[Vin] <-- [3.3V same power source as for Arduino]
+[BAT] <-- [direct positive voltage from LiPo battery. Can handel between 2.3V and 5.5V]
+
+[DS3231][i2c SCL](logic high level is Vin) <--> [arduino][PC5](i2c SCL)
+[DS3231][i2c SDA](logic high level is Vin) <--> [arduino][PC4](i2c SDA)
+
+
+[DS3231][32K]	[not connected]
+[DS3231][SQW]	[not connected]
+[DS3231][RST]	[not connected]

@@ -1,0 +1,2 @@
+[Babysitter][i2c SCL] <--> [arduino][PC5](i2c SCL)
+[Babysitter][i2c SDA] <--> [arduino][PC4](i2c SDA)

@@ -1,0 +1,36 @@
+based on "arduino_pro_mini_pinout.png" image
+
+LEFT border side
+
+[TXD](31)	--> [Raspberry Pi][GPIO Serial RX]
+[RDX](30)	<-- [Raspberry Pi][GPIO Serial TX]
+[Reset]		[not connected]
+[GND]		<-- GND
+[PD2](INT0) <-- [Raspberry Pi][GPIO ignition]
+[PD3](INT1) <-- [Raspberry Pi][GPIO watchdog]
+[PD4]		--> MOSFET --> Raspberry Power
+[PD5](PWM)	--> [FemtoBuck] --> [Power LED front light]
+[PD6](PWM)	--> [FemtoBuck] --> [Power LED back light]
+[PD7] ???	--> MOSEFT --> USB Power A
+[PB0] ???	--> MOSEFT --> USB Power B
+[PB1](PWM)	--> [ignition coil]
+
+
+RIGHT border side
+[RAW in](3.3V - 12V) [not connected]
+[GND]		<-- GND
+[Reset] [not connected]
+[VCC](3.3V) <-- [DC 3.3 Step up/down. Power source babysitter]
+[PC3](ADC3) [not connected]
+[PC2](ADC2) [not connected]
+[PC1](ADC1) [not connected]
+[PC0](ADC0) <-- [voltage divider] <-- [USB 5V power source]
+[PB5](SCK) 	--> [USB switch]
+[PB4](MISO) --> [Raspberry Pi][GPIO bootdown]
+[PB3](MOSI) -->	[Arduino powersource MOSFET]
+[PB2](SS)	[not connected]
+
+
+RIGHT inner side
+[PC5](i2c SCL) <--> [DS3231][DRV2605L][Babysitter]
+[PC4](i2c SDA) <--> [DS3231][DRV2605L][Babysitter]

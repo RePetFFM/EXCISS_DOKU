@@ -1,0 +1,7 @@
+[GND] <-- GND
+[Vin] <-- [3.3V same power source as for Arduino]
+
+[DRV2605L][i2c SCL] <-->	[arduino][PC5](i2c SCL)
+[DRV2605L][i2c SDA] <-->	[arduino][PC4](i2c SDA)
+
+[DRV2605L][IN] 				[not connected]
