@@ -71,6 +71,7 @@ mission loop
 [cond][pi]		wait for 7 min
 [exec][pi][ard]	turn off all LED's
 [exec][pi]		start copying low frame rate video from USB Stick [main recording mass storage] to backup USB stick
+[exec][ard][pi]	Read from arduino last stored status and error informations for health logfile.
 [exec][pi]		Write health logfile to Transfer USB
 [exec][pi]		unmount USB sticks
 [exec][pi][ard]	send shutdown signal to Arduino via serial
