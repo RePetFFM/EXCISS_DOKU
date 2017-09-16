@@ -1,0 +1,6 @@
+[GND] <-- GND
+[Vin] <-- [12V]
+
+[Power LED front light]	<-- [FemtoBuck][PWM] <-- [arduino][PD5]
+
+[Power LED back light]	<-- [FemtoBuck][PWM] <-- [arduino][PD6]

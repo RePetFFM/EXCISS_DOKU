@@ -1,5 +1,9 @@
 hackathon task priority
 
+// raspberry pi config loader
+shell script
+shell aufruf mission python
+
 
 // raspberry pi camera recording 
 recording camera with 40 fps

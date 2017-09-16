@@ -1,0 +1,5 @@
+Fragen:
+
+- Downlink Transfervolumen pro Tag
+- Transfer USB Stick größe
+- 

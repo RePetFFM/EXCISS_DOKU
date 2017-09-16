@@ -21,7 +21,7 @@ ISS USB power first or power restore event
 [event][ard]	Arduino get power from nanoracks.
 [exec][ard]		Arduino increment boot counter and store in eeprom
 [exec][ard]		Arduino last boot date time and store in eeprom
-[exec][ard]		After bootup, swaping the arduino power source from USB to internal battery.
+[exec][ard]		After bootup, switch to arduino power preserve.
 ([exec][ard]	Check battery charg level via sparkfun babysitter. )
 [exec][ard]		Switch USB dataswitch to NanoRacks
 
@@ -45,6 +45,8 @@ mission loop
 [exec][ard][pi]	Read from arduino last stored status and error informations for health logfile.
 [exec][pi]		Write health logfile to transfer USB.
 [exec][pi]		Check for new config and python code on transfer USB.
+[cond][pi][ard]	If mission end kill config information detected. Do finals shutdown. 	
+[info][check]	blacklist usb device mounting on booting. 
 [check][pi]		check USB A status. Store USB status.
 [check][pi]		check USB B status. Store USB status.
 [exec][pi]		define [main recording mass storage] based on USB A/B status
@@ -76,11 +78,14 @@ mission loop
 
 [exec][ard]		after 2 min arduino turn off Raspi power
 [exec][ard]		Arduino swaps USB switch to NanoRacks
+[exec][ard]		trigger multiple ignites, to prevent charged capacitor.
 [exec][ard]		loop back to mission loop start
+
 
 [exec][ard]		loop exit conditions
 	[cond][ard]		no USB Power for 2 days
 	[cond][ard]		OR Mission end Date
+
 
 
 power managment loop
@@ -99,6 +104,7 @@ shutdown
 [exec][ard]		If raspberry ist still on try gracefull shutdown wait for 3min
 [exec][ard]		Turn off all LED's
 [exec][ard]		Turn off Raspberry
+[exec][ard]		trigger multiple ignites, to prevent charged capacitor.
 [exec][ard]		Turn off Arduino
 [info]			If USB power is restored then "ISS USB power first or power restore event" must be triggered.
 
