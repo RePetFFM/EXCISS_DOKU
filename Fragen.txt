@@ -1,5 +1,15 @@
+Ideas:
+
+create checksum after data stored on each massstorages:
+
+additional config commands:
+	requesting HQ videos from sample return storage Sample return HQ Video thumbnail request.
+	Request video list with checksums.
+	Detect corrupted files based on checksum delta between all copies.
+
+
 Fragen:
 
-- Downlink Transfervolumen pro Tag
-- Transfer USB Stick größe
-- 
+Q Downlink Transfervolumen pro Tag
+Q Transfer USB Stick größe
+	f: 64GB

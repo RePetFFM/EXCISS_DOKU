@@ -42,6 +42,7 @@ mission loop
 [exec][ard]		Power on Raspberry PI
 
 [exec][pi][ard]	Set watchdog GPIO to high for 3 sec and keep it for 3min low. The arduino should try to gracefull shutdown the raspberry, if the watchdog signal is missing for predefined timespan.
+[exec][ard][pi]	get date time from arduino via serial read request
 [exec][ard][pi]	Read from arduino last stored status and error informations for health logfile.
 [exec][pi]		Write health logfile to transfer USB.
 [exec][pi]		Check for new config and python code on transfer USB.
