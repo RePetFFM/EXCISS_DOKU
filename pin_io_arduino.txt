@@ -6,29 +6,29 @@ LEFT border side
 [RDX](30)	<-- [Raspberry Pi][GPIO Serial TX]
 [Reset]		[not connected]
 [GND]		<-- GND
-[PD2](INT0) ? <-- [Raspberry Pi][GPIO ignition]
+[PD2](INT0) <-- [not connected]
 [PD3](INT1) <-- [Raspberry Pi][GPIO watchdog]
-[PD4]		--> MOSFET --> Raspberry Power
+[PD4]		--> [MOSFET 5V]
 [PD5](PWM)	--> [FemtoBuck] --> [Power LED front light]
 [PD6](PWM)	--> [FemtoBuck] --> [Power LED back light]
-[PD7]		--> [ignition coil]
-[PB0] ???	--> MOSEFT --> USB Power
-[PB1](PWM)	--> Fan PWM
+[PD7]		--> [trigger ignition coil]
+[PB0] 		--> [ignition coil charg DC/DC converter enable]
+[PB1](PWM)	--> [MOSFET 12V]
 
 
 RIGHT border side
-[RAW in](3.3V - 12V) [not connected]
+[RAW in](3.3V - 12V)  <-- [DC 5v Step up/down. Power source babysitter]
 [GND]		<-- GND
 [Reset] [not connected]
-[VCC](3.3V) <-- [DC 3.3 Step up/down. Power source babysitter]
+[VCC](3.3V) --> [3.3V powersource for devices][USB switch][RTC]
 [PC3](ADC3) [not connected]
-[PC2](ADC2) <-- [Ignition coil voltage sence]
+[PC2](ADC2) <-- [ignition coil capacitor voltage]
 [PC1](ADC1) [not connected]
-[PC0](ADC0) <-- [!!!!USB 5V power source. ADC0 voltage must be max 3.3V]
-[PB5](SCK) 	--> [USB switch]
-[PB4](MISO) --> [Raspberry Pi][GPIO bootdown]
-[PB3](MOSI) -->	[Arduino powersource MOSFET]
-[PB2](SS)	--> [Babysitter power on/off]
+[PC0](ADC0) --> [USB switch][OE]
+[PB5](SCK) 	--> [USB switch][Switch]
+[PB4](MISO) <-- [Babysitter][PGOOD(V_PU)]
+[PB3](MOSI) <--	[Babysitter][GPOUT]
+[PB2](SS)	--> [Babysitter][SYSOFF]
 
 
 RIGHT inner side

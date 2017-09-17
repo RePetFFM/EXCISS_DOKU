@@ -19,6 +19,7 @@ ISS transfer
 ISS USB power first or power restore event
 ------------------------------------------
 [event][ard]	Arduino get power from nanoracks.
+[cond][ard]		if terminal shutdown state don't bootup and sysoff.
 [exec][ard]		Arduino increment boot counter and store in eeprom
 [exec][ard]		Arduino last boot date time and store in eeprom
 [exec][ard]		After bootup, switch to arduino power preserve.
@@ -108,6 +109,16 @@ shutdown
 [exec][ard]		Turn off Raspberry
 [exec][ard]		trigger multiple ignites, to prevent charged capacitor.
 [exec][ard]		Turn off Arduino
+[info]			If USB power is restored then "ISS USB power first or power restore event" must be triggered.
+
+
+terminal shutdown
+------------------------------------------
+[exec][ard]		If raspberry ist still on try gracefull shutdown wait for 3min
+[exec][ard]		Turn on all LED's to 30%
+[exec][ard]		Turn off Raspberry
+[exec][ard]		trigger multiple ignites, to prevent charged capacitor.
+[exec][ard]		store state terminal shutdown.
 [info]			If USB power is restored then "ISS USB power first or power restore event" must be triggered.
 
 

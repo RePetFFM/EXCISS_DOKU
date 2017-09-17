@@ -2,9 +2,9 @@
 [Babysitter][i2c SDA] <--> [arduino][PC4](i2c SDA)
 
 [V_USB]
-[BATTERY_IM]
-[OUT]
-[SYSOFF] (low = battery power active)
+[BATTERY_IN]
+[V_OUT]
+[SYSOFF] (low = battery power active) <-- [arduino][PB2](SS)
 [V_PU] !!! V_PU pin function changed to PGOOD !!! Indicates 
-
-[Babysitter][Babysitter power on/off] <-- [arduino][PB2](SS)
+[PGOOD] --> [arduino][PB2](SS) 
+[GPOUT] --> [arduino][PB2](SS)
