@@ -36,7 +36,7 @@ mission loop
 ------------------------------------------
 [exec][ard]		Check for outside data transfer window time frame.
 [cond][ard]		Waiting until batterie is charged to mission phase voltage. Keep in mind, don't set the mission start charg leve to 100% due to battery degradation.
-[cond][ard]		Waiting for full charg of ignition coil.
+[cond][ard]		[not final] Waiting for full charg of ignition coil.
 
 [exec][ard]		Switch USB dataswitch to Raspberry PI
 [exec][ard]		Power on Raspberry PI
