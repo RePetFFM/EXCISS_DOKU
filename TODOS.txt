@@ -1,0 +1,18 @@
+TODOS:
+
+Required features, features allready implemented, second tier feature requests.
+
+
+///////////////////////////////////////////////////
+Required features:
+
+- sysoff transitor switch. Prevent turn on the babysitter if the arduino is in hi-z state, if arduino is powered down.
+
+- rc filtering or higher pwm frequency is required to suppress LED flicker on video recording.
+
+- raspberry pi watchdog. If the raspberry pi's watchdog gpio doesn't toggles due to system crash, the arduino should cut off the 5V power rail to turning off all 5V component. Turn off all not requierd component.
+
+///////////////////////////////////////////////////
+Second tier feature requests:
+
+- arduino memory check

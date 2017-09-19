@@ -1,0 +1,35 @@
+Serial command examples:
+
+
+request date time:
+sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c rdt
+
+set date time:
+sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c wdt2017_9_17_12_30_00
+
+
+
+
+enable shaker:
+sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c ese
+
+disable shaker:
+sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c esd
+
+
+
+
+LED front full power:
+sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c wf255
+
+LED back full power:
+sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c wb255
+
+
+
+
+LED front off:
+sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c wf0
+
+LED back off:
+sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c wb0

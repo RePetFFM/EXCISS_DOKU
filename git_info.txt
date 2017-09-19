@@ -1,0 +1,30 @@
+
+sudo apt-get install git
+
+git clone https://github.com/RePetFFM/EXCISS.git
+(#git clone https://github.com/yetanothergithubaccount/yetanotherhelloword.git)
+
+cd EXCISS
+(#cd yetanotherhelloword)
+
+# perform user settings
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+# modify, add, etc
+
+# view modified, added, deleted files
+git status
+
+# add content for upload to repository
+git add *
+
+# commit locally
+git commit -m "commit message"
+
+# push local changes to github repository
+git push origin master
+
+# update the local repository
+git pull https://github.com/RePetFFM/EXCISS.git
+

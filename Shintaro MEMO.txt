@@ -13,7 +13,7 @@ Ignition system memos:
 	!!! approximated current consumption per charg is smaller 400mAh
 
 
-	250 milisec is required to charg the ignition sparc. To do a backup ignition sparc, wait minimum charg time to generate a ignition sparc.
+	250 millisec is required to charg the ignition sparc. To do a backup ignition sparc, wait minimum charg time to generate a ignition sparc.
 
 	// cap charg managment
 	the arduino monitors and controlles the charging of the arc capacitor.

@@ -1,3 +1,5 @@
+revision 00A
+
 based on "arduino_pro_mini_pinout.png" image
 
 LEFT border side
@@ -6,14 +8,14 @@ LEFT border side
 [RDX](30)	<-- [Raspberry Pi][GPIO Serial TX]
 [Reset]		[not connected]
 [GND]		<-- GND
-[PD2](INT0) <-- [not connected]
+[PD2](INT0)
 [PD3](INT1) <-- [Raspberry Pi][GPIO watchdog]
-[PD4]		--> [MOSFET 5V]
-[PD5](PWM)	--> [FemtoBuck] --> [Power LED front light]
-[PD6](PWM)	--> [FemtoBuck] --> [Power LED back light]
+[PD4]		--> [MOSFET 5V source]
+[PD5](PWM)	--> [MOSFET 8V source]
+[PD6](PWM)	--> [not connected]
 [PD7]		--> [trigger ignition coil]
 [PB0] 		--> [ignition coil charg DC/DC converter enable]
-[PB1](PWM)	--> [MOSFET 12V]
+[PB1](PWM)	--> [FemtoBuck] --> [Power LED front light]
 
 
 RIGHT border side
@@ -23,12 +25,12 @@ RIGHT border side
 [VCC](3.3V) --> [3.3V powersource for devices][USB switch][RTC]
 [PC3](ADC3) [not connected]
 [PC2](ADC2) <-- [ignition coil capacitor voltage]
-[PC1](ADC1) [not connected]
-[PC0](ADC0) --> [USB switch][OE]
-[PB5](SCK) 	--> [USB switch][Switch]
-[PB4](MISO) <-- [Babysitter][PGOOD(V_PU)]
-[PB3](MOSI) <--	[Babysitter][GPOUT]
-[PB2](SS)	--> [Babysitter][SYSOFF]
+[PC1]
+[PC0] --> [USB switch][Switch]
+[PB5] --> [Babysitter][SYSOFF]
+[PB4] <-- [Babysitter][PGOOD(V_PU)]
+[PB3] <-- [Babysitter][GPOUT]
+[PB2](PWM)	--> [FemtoBuck] --> [Power LED back light]
 
 
 RIGHT inner side
