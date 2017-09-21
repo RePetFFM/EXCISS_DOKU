@@ -13,6 +13,16 @@ Required features:
 - raspberry pi watchdog. If the raspberry pi's watchdog gpio doesn't toggles due to system crash, the arduino should cut off the 5V power rail to turning off all 5V component. Turn off all not requierd component.
 
 ///////////////////////////////////////////////////
-Second tier feature requests:
+Flight mission critical second tier feature requests:
+
+- state machine index self healing feature
+
+- retry count self healing feature
+
+- storing state index in eeprom
+
+///////////////////////////////////////////////////
+Not flight critical second tier feature requests:
 
 - arduino memory check
+

@@ -5,6 +5,5 @@
 [BATTERY_IN]
 [V_OUT]
 [SYSOFF] (low = battery power active) <-- [arduino][PB2](SS)
-[V_PU] !!! V_PU pin function changed to PGOOD !!! Indicates 
-[PGOOD] --> [arduino][PB2](SS) 
-[GPOUT] --> [arduino][PB2](SS)
+[PGOOD (V_PU)] --> [nc]
+[GPOUT] --- [pull to VDD with 10k ohm] --- [Babysitter][VDD 1.8V]
