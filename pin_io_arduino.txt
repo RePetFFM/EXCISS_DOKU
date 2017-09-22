@@ -1,4 +1,4 @@
-revision 00B
+revision 00C
 
 based on "arduino_pro_mini_pinout.png" image
 
@@ -26,9 +26,9 @@ RIGHT border side
 [PC3]
 [PC2](ADC2) <-- [ignition coil capacitor voltage]
 [PC1]
-[PC0](ADC0) <-- [USB 5V sense with voltage divider for 3.3V max input to Arduino ADC]
-[PB5]
-[PB4] --> [USB switch][Switch] 
+[PC0]
+[PB5] --> [USB switch][Switch] 
+[PB4] <-- [Babysitter][PGOOD] 
 [PB3] --> [Babysitter][SYSOFF] 
 [PB2](PWM)	--> [FemtoBuck] --> [Power LED back light]
 
