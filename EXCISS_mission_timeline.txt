@@ -30,31 +30,39 @@ ISS USB power first or power restore event
 power command loop
 ------------------------------------------
 [event][ard]	USB power state transition detction and decode command (example power on/off sequence 1min off., 1min on, 1min off, 2min on, off).
-[cond][ard]		if shutdown comand recieved do shutdown 
+[cond][ard]		If shutdown comand recieved do shutdown 
+[cond][ard]		Switch to "time restore mode", store the last power rise time. Set shutdown gpio pin on raspi to high. Wait 5min for shutdown. USB Transfer mode.
 
 
 mission loop
 ------------------------------------------
 [exec][ard]		Check for outside data transfer window time frame.
 [cond][ard]		Waiting until batterie is charged to mission phase voltage. Keep in mind, don't set the mission start charg leve to 100% due to battery degradation.
-[cond][ard]		[not final] Waiting for full charg of ignition coil.
 
-[exec][ard]		Switch USB dataswitch to Raspberry PI
+
+**** if raspberry start condition is green
 [exec][ard]		Power on Raspberry PI
 
-[exec][pi][ard]	Set watchdog GPIO to high for 3 sec and keep it for 3min low. The arduino should try to gracefull shutdown the raspberry, if the watchdog signal is missing for predefined timespan.
-[exec][ard][pi]	get date time from arduino via serial read request
+[exec][ard][pi]	get date time from arduino via serial read request. Or if datetime setter file is present, then send to arduino. 
+
 [exec][ard][pi]	Read from arduino last stored status and error informations for health logfile.
-[exec][pi]		Write health logfile to transfer USB.
+
 [exec][pi]		Check for new config and python code on transfer USB.
-[cond][pi][ard]	If mission end kill config information detected. Do finals shutdown. 	
-[info][check]	blacklist usb device mounting on booting. 
+
+[cond][pi][ard]	If mission end kill config information detected. Do final shutdown.
+
+[info][check]	blacklist usb device mounting on booting.
+
 [check][pi]		check USB A status. Store USB status.
 [check][pi]		check USB B status. Store USB status.
 [exec][pi]		define [main recording mass storage] based on USB A/B status
 [exec][pi]		store health logfile with datetime and incremented integer value (prevent overwriting in case off RTC error) to the active storage.
 
 [exec][pi]		Start main mission
+[exec][ard][pi]	requesting distance to next transfer time and current power data
+
+[exec][pi][ard]	sending keepalive 
+
 [exec][pi][ard]	turn off all LED's
 [exec][pi]		take dark still image for pixel error reference on USB Stick [main recording mass storage]
 [exec][pi][ard]	?(turn on shaker for 1 sec)
@@ -63,8 +71,10 @@ mission loop
 [exec][pi][ard]	?(turn on shaker for 1 sec)
 [exec][pi]		start video recording with high framerate on USB Stick [main recording mass storage]
 [cond][pi]		wait 2 sec
-[exec][pi][ard]	 ?(turn on shaker for 1 sec and wait 0.5 sec)
+[exec][pi][ard]	?(turn on shaker for 1 sec and wait 0.5 sec)
+[cond][ard][pi]	[not final] Waiting for full charg of ignition coil.
 [exec][pi][ard]	ignition
+[exec][pi][ard]	set timer for next science mission
 [cond][pi]		wait for 3 min
 [exec][pi]		stop high frame rate recording
 [exec][pi]		start copying in background high frame rate video from USB Stick [main recording mass storage] to transfer USB stick
@@ -76,12 +86,10 @@ mission loop
 [exec][ard][pi]	Read from arduino last stored status and error informations for health logfile.
 [exec][pi]		Write health logfile to Transfer USB
 [exec][pi]		unmount USB sticks
-[exec][pi][ard]	send shutdown signal to Arduino via serial
-[exec][pi]		shutdown raspberry pi
 
-[exec][ard]		after 2 min arduino turn off Raspi power
-[exec][ard]		Arduino swaps USB switch to NanoRacks
-[exec][ard]		trigger multiple ignites, to prevent charged capacitor.
+[exec][pi][ard]	sending keepalive time with estimated shutdown duration
+[exec][pi]		shutdown raspberry pi
+[exec][ard]		if keepalive is expired turn down 5V and 8V switched power
 [exec][ard]		loop back to mission loop start
 
 
@@ -93,9 +101,8 @@ mission loop
 
 power managment loop
 ------------------------------------------
-[cond][ard]		check NanoRacks USB Power status over GPIO
+[cond][ard]		check NanoRacks USB Power status over PGOOD
 [cond][ard]		check NanoRacks USB Power status over Babysitter
-[cond][ard]		check Battery charg level
 [store][ard]	store science mission "go" or "no go"
 [store][ard]	add store last error bits (must be cleared by raspberry pi via serial command after appending the error codes in downlink transfer logfile).
 [store][ard]	store current battery level and any battery health related values.

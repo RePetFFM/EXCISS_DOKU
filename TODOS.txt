@@ -4,13 +4,17 @@ Required features, features allready implemented, second tier feature requests.
 
 
 ///////////////////////////////////////////////////
-Required features:
+Requested features:
 
 - sysoff transitor switch. Prevent turn on the babysitter if the arduino is in hi-z state, if arduino is powered down.
 
 - rc filtering or higher pwm frequency is required to suppress LED flicker on video recording.
 
 - raspberry pi watchdog. If the raspberry pi's watchdog gpio doesn't toggles due to system crash, the arduino should cut off the 5V power rail to turning off all 5V component. Turn off all not requierd component.
+
+- connecting the i2c vibretion motor driver to raspberry pi not arduino
+
+- is i2c timeout integrated?
 
 ///////////////////////////////////////////////////
 Flight mission critical second tier feature requests:

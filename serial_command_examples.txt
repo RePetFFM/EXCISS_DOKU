@@ -1,35 +1,97 @@
 Serial command examples:
+sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c [command string]
 
 
-request date time:
-sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c rdt
+// ----------------------------------------
+// datetime commands:
 
-set date time:
-sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c wdt2017_9_17_12_30_00
+request date time: 
+	command: rdt
+	parameter: none
+	return value: YYYY_MM_DD_HH_MM_SS without leading zero
+
+set date time: 
+	command: wdtYYYY_MM_DD_HH_MM_SS
+	example: wdt2017_9_17_12_30_00
+	note: don't user leading zeros
+
+set date time based on last powercycle command "restore date time": 
+	command: wdrYYYY_MM_DD_HH_MM_SS
+	example: wdr2017_9_17_12_30_00
+	note: don't user leading zeros
 
 
+// ----------------------------------------
+// operation commands:
+
+raspberry pi power keepalive timer:
+	command: erk[###]
+	paramter: positive interger value to set keepalive timeout in seconds
+	example: erk300 
+	note: the example command will wait 300 seconds (5min) until raspberty power down
+
+get batterie volate:
+	command: rvb
+	returns: voltage in integer value. the value must be divided by 100 to get the real float value.
+
+get time left until next datatransfer start:
+	command: rtd
+	returns: returns time left until next datatransfer start in seconds
+
+get system health data from arduino:
+	command: rh
+	parameter: none
+	returns: system health data from arduino
+
+
+// ----------------------------------------
+// science commands:
+
+
+configure shaker:
+	command: wse[##]_[##]_[##]_[##]_[##]_[##]_[##]
+	parameter: vibration effect sequence. 
+	example: wse64_64_64_64_64_64_64
+	note: Table of all Waveforms https://github.com/RePetFFM/EXCISS_DOKU/blob/master/adafruit_drv2605_components_waveforms.png
 
 
 enable shaker:
-sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c ese
+	command: ese
+	parameter: vibration effect sequence. 
+	example: ese
+
 
 disable shaker:
-sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c esd
+	command: esd
 
 
+LED frontlight full power:
+	command: wf[###]
+	parameter: light intensity value between 0 to 255. Set 0 to turn off.
+	example: wf255
+
+LED backlight full power:
+	command: wb[###]
+	parameter: light intensity value between 0 to 255. Set 0 to turn off.
+	example: wb255
+
+Start charging capacitor to target voltage:
+	command: eic[###]
+	parameter: positive integer value between 0 to 500
+	example: eic300
+
+is charging finished:
+	command: eif
+	parameter: none
+	return: charging / done / [failurecode]
 
 
-LED front full power:
-sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c wf255
-
-LED back full power:
-sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c wb255
+Abort charging capacitor:
+	command: eia
+	parameter: none
 
 
-
-
-LED front off:
-sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c wf0
-
-LED back off:
-sudo python /home/pi/EXCISS/exciss_python_master/python/sendSerialCmd.py -s /dev/ttyAMA0 -b 9600 -c wb0
+Ignition:
+	command: eii
+	return value: [###]_[###]
+	note: first return value is the capacitor voltage befor ignition. second value is the capacitor voltage shortly after ignition

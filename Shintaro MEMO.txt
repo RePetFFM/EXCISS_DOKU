@@ -1,6 +1,12 @@
 Shintaro MEMO
 
 
+Todo Sonntag:
+	Rheiner:
+		Keyframerate festlegen.
+		Dann FFMPEG Keyframe export als zeitraffer.
+
+
 Terminologies 
 	ignition sparc
 	arc
