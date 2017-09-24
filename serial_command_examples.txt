@@ -30,7 +30,13 @@ raspberry pi power keepalive timer:
 	example: erk300 
 	note: the example command will wait 300 seconds (5min) until raspberty power down
 
-get batterie volate:
+raspberry pi next wakeup timer:
+	command: erw[###]
+	paramter: positive interger value in seconds.
+	example: erk300 
+	note: the example command will wait 300 seconds (5min) until power up.
+
+get batterie voltage:
 	command: rvb
 	returns: voltage in integer value. the value must be divided by 100 to get the real float value.
 
@@ -80,8 +86,8 @@ Start charging capacitor to target voltage:
 	parameter: positive integer value between 0 to 500
 	example: eic300
 
-is charging finished:
-	command: eif
+polling is charging finished:
+	command: rcr
 	parameter: none
 	return: charging / done / [failurecode]
 

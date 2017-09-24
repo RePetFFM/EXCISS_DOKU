@@ -1,4 +1,4 @@
-revision 00C
+revision 00D
 
 based on "arduino_pro_mini_pinout.png" image
 
@@ -12,7 +12,7 @@ LEFT border side
 [PD3](INT1) <-- [Raspberry Pi][GPIO watchdog]
 [PD4]		--> [MOSFET 5V source]
 [PD5](PWM)	--> [MOSFET 8V source]
-[PD6](PWM)	--> [not connected]
+[PD6](PWM)	--> [force Rasrpberry PI shutdown][GPIO]
 [PD7]		--> [trigger ignition coil]
 [PB0] 		--> [ignition coil charg DC/DC converter enable]
 [PB1](PWM)	--> [FemtoBuck] --> [Power LED front light]
