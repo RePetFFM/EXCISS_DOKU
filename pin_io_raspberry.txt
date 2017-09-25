@@ -1,6 +1,6 @@
 [Raspberry Pi][GPIO Serial RX] <-- [arduino][TXD](31)
 [Raspberry Pi][GPIO Serial TX] --> [arduino][RDX](30)
 
-[Raspberry Pi][GPIO ignition] --> [arduino][PD2](INT0)
-[Raspberry Pi][GPIO Watchdog] --> [arduino][PD2](INT1)
+[Raspberry Pi](i2c) --> [DRV2605L]
+[Raspberry Pi][GPIO Pin7] <-- [arduino][PD6](set high to force raspberry to shutdown)
 

@@ -54,22 +54,6 @@ get system health data from arduino:
 // science commands:
 
 
-configure shaker:
-	command: wse[##]_[##]_[##]_[##]_[##]_[##]_[##]
-	parameter: vibration effect sequence. 
-	example: wse64_64_64_64_64_64_64
-	note: Table of all Waveforms https://github.com/RePetFFM/EXCISS_DOKU/blob/master/adafruit_drv2605_components_waveforms.png
-
-
-enable shaker:
-	command: ese
-	parameter: vibration effect sequence. 
-	example: ese
-
-
-disable shaker:
-	command: esd
-
 
 LED frontlight full power:
 	command: wf[###]
@@ -89,7 +73,7 @@ Start charging capacitor to target voltage:
 polling is charging finished:
 	command: rcr
 	parameter: none
-	return: charging / done / [failurecode]
+	return: standby / charging / charged / failed
 
 
 Abort charging capacitor:

@@ -34,5 +34,5 @@ RIGHT border side
 
 
 RIGHT inner side
-[PC5](i2c SCL) <--> [DS3231][DRV2605L][Babysitter]
-[PC4](i2c SDA) <--> [DS3231][DRV2605L][Babysitter]
+[PC5](i2c SCL) <--> [DS3231][Babysitter]
+[PC4](i2c SDA) <--> [DS3231][Babysitter]
