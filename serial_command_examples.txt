@@ -37,11 +37,19 @@ raspberry pi next wakeup timer:
 	note: the example command will wait 300 seconds (5min) until power up.
 
 get batterie voltage:
-	command: rvb
-	returns: voltage in integer value. the value must be divided by 100 to get the real float value.
+	command: rbv
+	returns: voltage in integer value.
+
+get batterie capacity:
+	command: rbc
+	returns: voltage in integer value.
+
+get usb power status:
+	command: rus
+	returns: FRAME POWER ONLINE / FRAME POWER OFFLINE
 
 get time left until next datatransfer start:
-	command: rtd
+	command: rtl
 	returns: returns time left until next datatransfer start in seconds
 
 get system health data from arduino:

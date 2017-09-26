@@ -1,0 +1,96 @@
+|-------------------------------------------------|
+|  Control commands overview for science purpose  |
+|-------------------------------------------------|
+|  date: 2017/09/26                               |
+|  author: Shintaro Fujita                        |
+|-------------------------------------------------|
+
+
+Note:
+All executed commands and return values will be stored in Logfiles.
+The logfiles will be attached to the associated science transfer data packages.
+
+
+----------------------------------------
+Function: Sleep
+Parameters: 
+	- seconds: Time until execution of the next command in seconds
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Charging arc capcacitor
+Parameters: 
+	- voltage: Target charging voltage
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Wait for capacitor ready
+Parameters: none
+Return values: charging / ready / failed
+........................................
+
+
+----------------------------------------
+Function: Rappel
+Parameters: 
+	- pattern: Wafeform patterns (https://github.com/RePetFFM/EXCISS_DOKU/blob/master/adafruit_drv2605_components_waveforms.png)
+	- duration: Duration in seconds
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Frontlight
+Parameters: 
+	- power: light intensity. Value between 0 to 255. 0 for turn off, 255 is full power. This parameter will affects the power consumption! 
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Backlight
+Parameters: 
+	- power: light intensity. Value between 0 to 255. 0 for turn off, 255 is full power. This parameter will affects the power consumption! 
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Ignition
+Parameters: none
+Return values: 
+	- voltage0: pre-ignition capacitor voltage 
+	- voltage1: after igntion capacitor voltage
+........................................
+
+
+----------------------------------------
+Function: Take a still picture
+Parameters: 
+	- width: image width
+	- height: image height
+	- more parameters are available
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Start video recording
+Parameters: 
+	- quality: video quality
+	- duration: recording duration
+	- more parameters are available
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Set wakeup timer
+Parameters: 
+	- seconds: timer value in seconds
+Return values: none
+........................................

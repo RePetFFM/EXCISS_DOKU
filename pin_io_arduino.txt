@@ -1,4 +1,4 @@
-revision 00D
+revision 00E
 
 based on "arduino_pro_mini_pinout.png" image
 
@@ -9,7 +9,7 @@ LEFT border side
 [Reset]		[not connected]
 [GND]		<-- GND
 [PD2](INT0)
-[PD3](INT1) <-- [Raspberry Pi][GPIO watchdog]
+[PD3](INT1)
 [PD4]		--> [MOSFET 5V source]
 [PD5](PWM)	--> [MOSFET 8V source]
 [PD6](PWM)	--> [force Rasrpberry PI shutdown][GPIO]

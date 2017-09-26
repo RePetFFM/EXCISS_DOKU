@@ -1,0 +1,155 @@
+
+
+----------------------------------------
+Function: Charging arc capcacitor
+Parameters: 
+  - voltage: Target charging voltage
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Wait for capacitor ready
+Parameters: none
+Return values: charging / ready / failed
+........................................
+
+
+// begin with taking reference images
+
+----------------------------------------
+Function: Frontlight
+Parameters: 
+	- power: 0
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Backlight
+Parameters: 
+	- power: 0
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Take a still picture
+Parameters: 
+	- width: image width
+	- height: image height
+	- more parameters are available
+Return values: none
+........................................
+
+
+
+
+----------------------------------------
+Function: Frontlight
+Parameters: 
+  - power: 255
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Backlight
+Parameters: 
+  - power: 255
+Return values: none
+........................................
+
+
+
+----------------------------------------
+Function: Take a still picture
+Parameters: 
+  - width: image width
+  - height: image height
+  - more parameters are available
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Sleep
+Parameters: 
+  - seconds: 2
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Take a still picture
+Parameters: 
+  - width: image width
+  - height: image height
+  - more parameters are available
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Sleep
+Parameters: 
+  - seconds: 2
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Take a still picture
+Parameters: 
+  - width: image width
+  - height: image height
+  - more parameters are available
+Return values: none
+........................................
+
+
+
+// begin with experiment
+
+----------------------------------------
+Function: Start video recording
+Parameters: 
+  - quality: video quality
+  - duration: 60*3
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Rappel
+Parameters: 
+  - pattern: Wafeform patterns (https://github.com/RePetFFM/EXCISS_DOKU/blob/master/adafruit_drv2605_components_waveforms.png)
+  - duration: 10
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Sleep
+Parameters: 
+  - seconds: 5
+Return values: none
+........................................
+
+
+----------------------------------------
+Function: Ignition
+Parameters: none
+Return values: 
+  - voltage0: pre-ignition capacitor voltage 
+  - voltage1: after igntion capacitor voltage
+........................................
+
+
+----------------------------------------
+Function: Set wakeup timer
+Parameters: 
+  - seconds: 3600 (wake me in 1h)
+Return values: none
+........................................
+
