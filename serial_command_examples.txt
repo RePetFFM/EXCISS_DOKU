@@ -93,3 +93,9 @@ Ignition:
 	command: eii
 	return value: [###]_[###]
 	note: first return value is the capacitor voltage befor ignition. second value is the capacitor voltage shortly after ignition
+
+
+get capacitor voltage:
+	command: riv
+	parameter: none
+	return: current capacitor voltage

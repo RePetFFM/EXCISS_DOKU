@@ -18,20 +18,25 @@ ISS transfer
 
 ISS USB power first or power restore event
 ------------------------------------------
-[event][ard]	Arduino get power from nanoracks.
-[cond][ard]		if terminal shutdown state don't bootup and sysoff.
-[exec][ard]		Arduino increment boot counter and store in eeprom
-[exec][ard]		Arduino last boot date time and store in eeprom
+[event][ard]	Arduino get power from Frame.
+[cond][ard]		if terminal shutdown state for sample return, turn off Vsys.
+[exec][ard]		Arduino increment boot counter and store in NVM.
+[exec][ard]		Store current boot datetime in NVM.
 [exec][ard]		After bootup, switch to arduino power preserve.
-([exec][ard]	Check battery charg level via sparkfun babysitter. )
-[exec][ard]		Switch USB dataswitch to NanoRacks
+[exec][ard]		Check battery status via sparkfun babysitter, append to the log in NVM.
+[exec][ard]		Switch USB dataswitch to Frame.
 
 
-power command loop
+powermanagment statemachine
 ------------------------------------------
-[event][ard]	USB power state transition detction and decode command (example power on/off sequence 1min off., 1min on, 1min off, 2min on, off).
-[cond][ard]		If shutdown comand recieved do shutdown 
-[cond][ard]		Switch to "time restore mode", store the last power rise time. Set shutdown gpio pin on raspi to high. Wait 5min for shutdown. USB Transfer mode.
+[ard]	USB power state transition detction and decode command (example power on/off sequence 10sec off., 10sec on, 10sec off and after 10sec keep on). Recovery mode start.
+[ard]	If USB power is down for specifite duration, then turn off Vsys.
+[ard]	Shutdown Vsys if any thermal or battery fault is detected.
+[cond][ard]		check Frame USB Power status over PGOOD
+[store][ard]	store science mission "go" or "no go"
+[store][ard]	add store last error bits (must be cleared by raspberry pi via serial command after appending the error codes in downlink transfer logfile).
+[store][ard]	store current battery level and any battery health related values.
+[store][ard]	store current gauge values, max and min values are stored as peak value.
 
 
 mission loop
@@ -41,11 +46,16 @@ mission loop
 
 
 **** if raspberry start condition is green
-[exec][ard]		Power on Raspberry PI
+[exec][ard]		Power on Raspberry PI with 5min keepalive timer.
 
-[exec][ard][pi]	get date time from arduino via serial read request. Or if datetime setter file is present, then send to arduino. 
+**** after bootup from SCU execute initialization scripts
+[exec][ard][pi]	get date time from arduino(RTC) via serial read request. Or if datetime setter file is present, then send to arduino. 
 
 [exec][ard][pi]	Read from arduino last stored status and error informations for health logfile.
+
+[check][pi]		check USB A status. Store USB status.
+[check][pi]		check USB B status. Store USB status.
+[exec][pi]		define [main recording mass storage] based on USB A/B status
 
 [exec][pi]		Check for new config and python code on transfer USB.
 
@@ -53,15 +63,16 @@ mission loop
 
 [info][check]	blacklist usb device mounting on booting.
 
-[check][pi]		check USB A status. Store USB status.
-[check][pi]		check USB B status. Store USB status.
-[exec][pi]		define [main recording mass storage] based on USB A/B status
 [exec][pi]		store health logfile with datetime and incremented integer value (prevent overwriting in case off RTC error) to the active storage.
 
-[exec][pi]		Start main mission
-[exec][ard][pi]	requesting distance to next transfer time and current power data
 
-[exec][pi][ard]	sending keepalive 
+
+**** after init, start mission script
+[exec][pi]		Start main mission
+[exec][ard][pi]	requesting distance to next data transfer start time and current power data
+[cond]			if condition is green for science proceed, if not send shudown command to MCU via UART.
+
+[exec][pi][ard]	sending keepalive time in seconds.
 
 [exec][pi][ard]	turn off all LED's
 [exec][pi]		take dark still image for pixel error reference on USB Stick [main recording mass storage]
@@ -74,7 +85,7 @@ mission loop
 [exec][pi][ard]	?(turn on shaker for 1 sec and wait 0.5 sec)
 [cond][ard][pi]	[not final] Waiting for full charg of ignition coil.
 [exec][pi][ard]	ignition
-[exec][pi][ard]	set timer for next science mission
+[exec][pi][ard]	set timer for next science mission in seconds
 [cond][pi]		wait for 3 min
 [exec][pi]		stop high frame rate recording
 [exec][pi]		start copying in background high frame rate video from USB Stick [main recording mass storage] to transfer USB stick
@@ -94,19 +105,9 @@ mission loop
 
 
 [exec][ard]		loop exit conditions
-	[cond][ard]		no USB Power for 2 days
-	[cond][ard]		OR Mission end Date
+	[cond][ard]		no USB Power for defined seconds.
+	[cond][ard]		OR terminal shutdown is set.
 
-
-
-power managment loop
-------------------------------------------
-[cond][ard]		check NanoRacks USB Power status over PGOOD
-[cond][ard]		check NanoRacks USB Power status over Babysitter
-[store][ard]	store science mission "go" or "no go"
-[store][ard]	add store last error bits (must be cleared by raspberry pi via serial command after appending the error codes in downlink transfer logfile).
-[store][ard]	store current battery level and any battery health related values.
-[store][ard]	store current gauge values, max and min values are stored as peak value.
 
 
 shutdown
@@ -121,10 +122,9 @@ shutdown
 
 terminal shutdown
 ------------------------------------------
-[exec][ard]		If raspberry ist still on try gracefull shutdown wait for 3min
-[exec][ard]		Turn on all LED's to 30%
-[exec][ard]		Turn off Raspberry
-[exec][ard]		trigger multiple ignites, to prevent charged capacitor.
+[exec][ard]		If raspberry ist still on try gracefull shutdown wait for 3min.
+[exec][ard]		Turn on all LED's to 30%. This will drain the Battery power. 
+[exec][ard]		Turn off Raspberry.
 [exec][ard]		store state terminal shutdown.
 [info]			If USB power is restored then "ISS USB power first or power restore event" must be triggered.
 

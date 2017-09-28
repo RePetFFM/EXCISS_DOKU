@@ -1,32 +1,56 @@
 TODOS:
 
-Required features, features allready implemented, second tier feature requests.
-
 
 ///////////////////////////////////////////////////
-Requested features:
+Requested features for first engineering model:
 
-- sysoff transitor switch. Prevent turn on the babysitter if the arduino is in hi-z state, if arduino is powered down.
+- sysoff transitor switch. Prevents uncontrolled switching on the Vsys  turn on the babysitter if the MCU is in hi-z state, if MCU is powered down.
+	+ solved by Lutz:
+		Solution using transitor [XXXXX].
 
 - rc filtering or higher pwm frequency is required to suppress LED flicker on video recording.
+	+ solved by Lutz & Shintaro:
+		Solution: Changed to a higher PWM frequency.
 
-- raspberry pi watchdog. If the raspberry pi's watchdog gpio doesn't toggles due to system crash, the arduino should cut off the 5V power rail to turning off all 5V component. Turn off all not requierd component.
+- SCU watchdog. If the SCU's watchdog gpio doesn't toggles due to system crash, the MCU should cut off the 5V power rail to turning off all 5V component. Turn off all not requierd component.
+	+ solved by Lutz & Shintaro:
+		Solution: The SCU requests power on window, by updating the keepalive timer value. If a timeout of the keepalive timer accurse, the 5V powerrail will be turnd off.
 
-- connecting the i2c vibretion motor driver to raspberry pi not arduino
+- connecting the i2c vibretion motor driver to SCU not MCU
+	+ solved by Lutz:
+		Solution: Lutz wrote a new i2c librrary for the vibration motor driver.
 
 - is i2c timeout integrated?
 
+
+
 ///////////////////////////////////////////////////
 Flight mission critical second tier feature requests:
+
+- MCU software watchdog, against full blocking functions.
+
+- hardware based MCU watchdog, to turn off Vsys. counter measures latch-up failure of the MCU. 
+
+- MCU memory check
+
+- preventing a overflow of the MCU's millis counter
 
 - state machine index self healing feature
 
 - retry count self healing feature
 
-- storing state index in eeprom
+- storing last state index in eeprom
+
+- Thermal managment
+
+- hardening against cosmic radiations
+
+
+
 
 ///////////////////////////////////////////////////
-Not flight critical second tier feature requests:
+More feature request:
 
-- arduino memory check
+
+
 

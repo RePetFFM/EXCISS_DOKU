@@ -10,8 +10,8 @@ LEFT border side
 [GND]		<-- GND
 [PD2](INT0)
 [PD3](INT1)
-[PD4]		--> [MOSFET 5V source]
-[PD5](PWM)	--> [MOSFET 8V source]
+[PD4]		--> [MOSFET Vsys switch for 5V DC/DC converter]
+[PD5](PWM)	--> [MOSFET Vsys switch for 8V DC/DC converter]
 [PD6](PWM)	--> [force Rasrpberry PI shutdown][GPIO]
 [PD7]		--> [trigger ignition coil]
 [PB0] 		--> [ignition coil charg DC/DC converter enable]
