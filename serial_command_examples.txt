@@ -81,7 +81,7 @@ Start charging capacitor to target voltage:
 polling is charging finished:
 	command: rcr
 	parameter: none
-	return: standby / charging / charged / failed
+	return: charging / charged / failed
 
 
 Abort charging capacitor:
