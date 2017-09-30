@@ -76,7 +76,7 @@ mission loop
 
 [exec][pi][ard]	turn off all LED's
 [exec][pi]		take dark still image for pixel error reference on USB Stick [main recording mass storage]
-[exec][pi][ard]	?(turn on shaker for 1 sec)
+[exec][pi][ard]	turn on shaker for 1 sec
 [exec][pi][ard]	turn on all LED's
 [exec][pi]		take 3 still images in 2 sec interval on USB Stick [main recording mass storage]
 [exec][pi][ard]	?(turn on shaker for 1 sec)

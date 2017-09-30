@@ -1,11 +1,14 @@
 TODOS:
 
 
+Alles fuer nach Oktober:
 Bestimmung der maximale kondensator lade zeit
 
 Definition fuer minimale Kondensator Spannung
 
 serial kommunikations problem. 
+
+Maximal einstellung fuer LED's
 
 
 ///////////////////////////////////////////////////
