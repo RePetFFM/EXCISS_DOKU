@@ -12,17 +12,23 @@ request date time:
 
 set date time: 
 	command: wdtYYYY_MM_DD_HH_MM_SS
-	example: wdt2017_9_17_12_30_00
+	example: wdt2017_9_17_12_30_0
 	note: don't user leading zeros
 
 set date time based on last powercycle command "restore date time": 
 	command: wdrYYYY_MM_DD_HH_MM_SS
-	example: wdr2017_9_17_12_30_00
+	example: wdr2017_9_17_12_30_0
 	note: don't user leading zeros
 
 
 // ----------------------------------------
 // operation commands:
+
+check operation mode:
+	command: rom
+	parameter: none
+	return: RECOVERY / SCIENCE
+	note: rom = read operation mode
 
 raspberry pi power keepalive timer:
 	command: erk[###]
@@ -53,9 +59,9 @@ get time left until next datatransfer start:
 	returns: returns time left until next datatransfer start in seconds
 
 get system health data from arduino:
-	command: rh
+	command: rhr
 	parameter: none
-	returns: system health data from arduino
+	returns: system health data from arduino rhr (read health report)
 
 
 // ----------------------------------------

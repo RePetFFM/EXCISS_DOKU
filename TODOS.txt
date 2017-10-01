@@ -10,6 +10,14 @@ serial kommunikations problem.
 
 Maximal einstellung fuer LED's
 
+Datumsformat angleichen auf unterstrich variante
+
+Temparatur Sensor
+
+MCU Speichern der fehler in NVM (intern / extern)
+
+
+
 
 ///////////////////////////////////////////////////
 Requested features for first engineering model:
