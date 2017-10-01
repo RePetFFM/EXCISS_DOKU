@@ -1,0 +1,5 @@
+[lila][din]		<-- 	ignition spark trigger
+[orange][din]	<--		high voltage unit enable
+[braun][aout]	-->		arc capcitor voltage 3.3V - 0V <=> 600V - 0V 
+[red]			<--		11V+
+[black]			<--		ground
