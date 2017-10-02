@@ -1,0 +1,240 @@
+..serial rdy
+sm1101
+bs req1
+bs req2
+sm1102
+sm1900
+sm3101
+sm2001
+sm4101
+sm3202
+sm2000
+sm3000
+Start cycle
+60081
+88
+PGOOD: FFFFFFFF
+powercommand max wait time
+sm2204
+sm2201
+sm2202
+sm2203
+sm4201
+sm2204
+FRAME POWER ONLINE
+20000
+RPikeepalive
+2000-1-1T0:10:58
+RECOVERY
+MCU health log
+bat v: 3943
+bat a: 11569
+bat charg: 92
+frame power: FRAME POWER ONLINE
+2017-10-2T3:34:17
+2017-10-2T3:34:18
+sm3201
+20000
+Wakeuptimer set
+2
+RPikeepalive
+sm4101
+sm2205
+PGOOD: 0
+.serial rdy
+sm1101
+bs req1
+bs req2
+sm1102
+sm1900
+sm3101
+sm2001
+sm4101
+sm3202
+sm2000
+sm3000
+Start cycle
+60131
+139
+PGOOD: FFFFFFFF
+powercommand max wait time
+sm2204
+sm2201
+sm2202
+sm2203
+sm4201
+sm2204
+FRAME POWER ONLINE
+600
+RPikeepalive
+2000-1-1T0:10:45
+RECOVERY
+MCU health log
+bat v: 3882
+bat a: 11554
+bat charg: 91
+frame power: FRAME POWER ONLINE
+2017-10-2T4:18:53
+2017-10-2T4:18:54
+120
+Wakeuptimer set
+10
+RPikeepalive
+sm4101
+sm2205
+sm3201
+sm2101
+sm2201
+sm2202
+sm2203
+sm4201
+sm2204
+FRAME POWER ONLINE
+600
+RPikeepalive
+2017-10-2T4:21:47
+SCIENCE
+MCU health log
+bat v: 3921
+bat a: 11562
+bat charg: 91
+frame power: FRAME POWER ONLINE
+FRAME POWER ONLINE
+3925
+11562
+FRAME POWER ONLINE
+52681
+1200
+RPikeepalive
+IG CHARG REQUEST ACK 200
+200
+sm4301
+sm4401
+charged
+LED front 0
+LED back 0
+LED front 100
+LED back 100
+200
+sm4201
+sm4301
+sm4401
+sm4403
+IG220 220sm4404
+IG_F1
+sm4405
+sm4403
+IG220 220sm4404
+IG_F2
+sm4405
+sm4403
+IG220 220sm4404
+IG_F3
+sm4405
+sm4403
+IG220 2191200
+Wakeuptimer set
+sm4404
+IG_F4
+sm4405
+sm4403
+IG220 220sm4404
+IG_F5
+sm4405
+sm4403
+IG220 220sm4404
+sm4901
+IGF 15
+sm4101
+900
+RPikeepalive
+LED front 0
+LED back 0
+10
+RPikeepalive
+sm2205
+sm2101
+sm2201
+sm2202
+sm2203
+sm4201
+sm2204
+FRAME POWER ONLINE
+600
+RPikeepalive
+2017-10-2T4:43:49
+SCIENCE
+MCU health log
+bat v: 3940
+bat a: 11601
+bat charg: 92
+frame power: FRAME POWER ONLINE
+FRAME POWER ONLINE
+3946
+11601
+FRAME POWER ONLINE
+51359
+1200
+RPikeepalive
+IG CHARG REQUEST ACK 200
+200
+sm4301
+sm4401
+charged
+LED front 0
+LED back 0
+LED front 100
+LED back 100
+200
+sm4201
+sm4301
+sm4401
+sm4403
+IG220 220sm4404
+IG_F1
+sm4405
+sm4403
+IG220 220sm4404
+IG_F2
+sm4405
+sm4403
+IG220 220sm4404
+IG_F3
+sm4405
+sm4403
+IG220 2201200
+Wakeuptimer set
+sm4404
+IG_F4
+sm4405
+sm4403
+IG220 220sm4404
+IG_F5
+sm4405
+sm4403
+IG220 220sm4404
+sm4901
+IGF 15
+sm4101
+900
+RPikeepalive
+LED front 0
+LED back 0
+10
+RPikeepalive
+sm2205
+sm2101
+PGOOD: 0
+Start cycle
+2554410
+2494410
+PGOOD: FFFFFFFF
+valid count2
+PGOOD: 0
+valid count3
+PGOOD: FFFFFFFF
+valid count4
+powercommand max wait time
+RELOAD CONFIG REQUEST
+reload config
+sm3000

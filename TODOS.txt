@@ -16,7 +16,7 @@ Temparatur Sensor
 
 MCU Speichern der fehler in NVM (intern / extern)
 
-
+Babysitter Chargenable
 
 
 ///////////////////////////////////////////////////
