@@ -1,4 +1,4 @@
-revision 00E
+revision 00F
 
 based on "arduino_pro_mini_pinout.png" image
 
@@ -11,10 +11,10 @@ LEFT border side
 [PD2](INT0)
 [PD3](INT1)
 [PD4]		--> [MOSFET Vsys switch for 5V DC/DC converter]
-[PD5](PWM)	--> [MOSFET Vsys switch for 8V DC/DC converter]
+[PD5](PWM)	--> [MOSFET Vsys switch for 11V DC/DC converter]
 [PD6](PWM)	--> [force Rasrpberry PI shutdown][GPIO]
 [PD7]		--> [trigger ignition coil]
-[PB0] 		--> [ignition coil charg DC/DC converter enable]
+[PB0] 		--> [HVU enable]
 [PB1](PWM)	--> [FemtoBuck] --> [Power LED front light]
 
 

@@ -18,6 +18,14 @@ MCU Speichern der fehler in NVM (intern / extern)
 
 Babysitter Chargenable
 
+PowerCycle Recovery entfernen
+
+Transferfenster vorher und nachher testen
+
+
+
+
+
 
 ///////////////////////////////////////////////////
 Requested features for first engineering model:
